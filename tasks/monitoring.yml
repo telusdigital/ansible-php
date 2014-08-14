@@ -1,0 +1,22 @@
+---
+- name: Upload Config | monit | php5-fpm
+  template:
+    src: etc/monit/conf.d/php5-fpm
+    dest: /etc/monit/conf.d/php5-fpm
+  notify: Reload Service | monit
+
+- name: Trigger All Callbacks
+  meta: flush_handlers
+
+- name: Configure | php5-fpm | pidfile
+  lineinfile:
+    state: present
+    dest: /etc/php5/fpm/php-fpm.conf
+    regexp: '^;* *pid '
+    line: 'pid = /run/php5-fpm.pid'
+  notify: Reload Service | php5-fpm
+
+- name: Confirm Monitoring | php5-fpm
+  monit:
+    state: present
+    name: php5-fpm

@@ -1,0 +1,7 @@
+[/data/log/php/error.log]
+type: php5-fpm
+tags: application, error
+
+[/data/log/php/fpm.log]
+type: php5-fpm
+tags: service

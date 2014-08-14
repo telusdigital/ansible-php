@@ -1,0 +1,13 @@
+---
+- name: Configure | php5-fpm | expose_php
+  lineinfile:
+    state: present
+    dest: /etc/php5/fpm/php.ini
+    regexp: '^;* *expose_php = '
+    line: 'expose_php = Off'
+  notify: Reload Service | php5-fpm
+  tags:
+    - configuration
+    - precise-configuration
+    - improves-security
+    - php

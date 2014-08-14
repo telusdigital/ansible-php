@@ -1,0 +1,73 @@
+---
+- name: Directory Exists | /data/log/php
+  file:
+    state: directory
+    path: /data/log/php
+    owner: www-data
+    group: wcadmin
+    mode: 0775
+  tags:
+    - directory-structure
+    - logging
+    - php
+
+- name: Configure | php5-fpm | php logfile
+  lineinfile:
+    state: present
+    dest: /etc/php5/fpm/php.ini
+    regexp: '^;* *error_log = '
+    line: 'error_log = /data/log/php/error.log'
+  notify: Reload Service | php5-fpm
+  tags:
+    - configuration
+    - precise-configuration
+    - logging
+    - php
+
+- name: File is Writable | /data/log/php/error.log
+  file:
+    state: touch
+    path: /data/log/php/error.log
+    owner: www-data
+    group: wcadmin
+    mode: 0664
+  tags:
+    - permissions
+    - logging
+    - php
+
+- name: Configure | php5-fpm | fpm logfile
+  lineinfile:
+    state: present
+    dest: /etc/php5/fpm/php-fpm.conf
+    regexp: '^;* *error_log = '
+    line: 'error_log = /data/log/php/fpm.log'
+  notify: Reload Service | php5-fpm
+  tags:
+    - configuration
+    - precise-configuration
+    - logging
+    - php
+
+- name: File is Writable | /data/log/php/fpm.log
+  file:
+    state: touch
+    path: /data/log/php/fpm.log
+    owner: www-data
+    group: wcadmin
+    mode: 0664
+  tags:
+    - permissions
+    - logging
+    - php
+
+- name: Upload Config | beaver | php5-fpm
+  template:
+    src: etc/beaver/conf.d/php5-fpm
+    dest: /etc/beaver/conf.d/php5-fpm
+  tags:
+    - configuration
+    - template-configuration
+    - logging
+    - using-beaver
+    - php

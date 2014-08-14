@@ -1,0 +1,15 @@
+---
+- name: Import Signing Key | ~ondrej
+  apt_key:
+    state: present
+    keyserver: 'hkp://keyserver.ubuntu.com:80'
+    id: '0x4f4ea0aae5267a6c'
+
+- name: Import Repository | ~ondrej/php5
+  apt_repository:
+    state: present
+    repo: 'deb http://ppa.launchpad.net/ondrej/php5/ubuntu trusty main'
+  notify: Update Package Cache
+
+- name: Trigger All Callbacks
+  meta: flush_handlers

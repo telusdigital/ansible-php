@@ -1,0 +1,15 @@
+---
+- name: Update Package Cache
+  apt:
+    update_cache: yes
+
+- name: Reload Service | monit
+  command: monit reload
+
+- name: Reload Service | php5-fpm
+  monit:
+    state: restarted
+    name: php5-fpm
+  tags:
+    - monit
+    - disruptive
