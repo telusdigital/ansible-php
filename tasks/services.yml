@@ -1,5 +1,0 @@
----
-- name: Service Started | php5-fpm
-  service:
-    state: started
-    name: php5-fpm

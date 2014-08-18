@@ -1,7 +1,11 @@
-[/data/log/php/error.log]
+[{{ php_fpm_log_path }}]
+type: php5-fpm
+tags: service
+
+[{{ php_error_log_path }}]
 type: php5-fpm
 tags: application, error
 
-[/data/log/php/fpm.log]
+[{{ php_slow_log_path }}]
 type: php5-fpm
-tags: service
+tags: application, slow

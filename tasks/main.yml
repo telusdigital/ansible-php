@@ -1,6 +1,5 @@
 ---
-- { include: install.yml, tags: ['package', 'install'] }
-- { include: monitoring.yml, tags: ['configure', 'monitoring', 'services'] }
-- { include: logging.yml, tags: ['configure', 'logging'] }
-- { include: config.yml }
-- { include: services.yml, tags: ['services'] }
+- include: install.yml
+- include: monitoring.yml
+- include: logging.yml
+- include: config.yml
