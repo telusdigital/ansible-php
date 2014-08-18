@@ -19,9 +19,10 @@
     state: latest
     pkg: "{{ item }}"
   with_items:
+    - php5-fpm
+  tags:
     - software-installation
     - using-apt
-    - php5-fpm
 
 - name: Service Stopped | php5-fpm
   service:
