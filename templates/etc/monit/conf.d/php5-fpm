@@ -1,4 +1,4 @@
-check process php5-fpm with pidfile {{ php_pidfile_path }}
+check process php5-fpm with pidfile {{ php_fpm_pidfile_path }}
   start program "/usr/sbin/service php5-fpm start"
   stop program "/usr/sbin/service php5-fpm stop"
   if 5 restarts within 5 cycles then timeout
