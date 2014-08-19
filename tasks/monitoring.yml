@@ -25,7 +25,7 @@
     state: present
     dest: /etc/php5/fpm/php-fpm.conf
     regexp: '^;* *pid '
-    line: 'pid = {{ php_pidfile_path }}'
+    line: 'pid = {{ php_fpm_pidfile_path }}'
   notify: Reload Service | php5-fpm
 
 - name: Confirm Monitoring | php5-fpm
