@@ -6,6 +6,7 @@
     option: "{{ item.option }}"
     value: "{{ item.value }}"
   with_items:
+    - { option: 'listen',                  value: "{{ php_fpm_socket_path }}" }
     - { option: 'error_log',               value: "{{ php_fpm_log_path }}" }
     - { option: 'pid',                     value: "{{ php_fpm_pidfile_path }}" }
     - { option: 'request_slowlog_timeout', value: "{{ php_slow_threshold }}" }

@@ -12,3 +12,15 @@
   tags:
     - filesystem-layout
     - php
+
+- name: Files Exist with Correct Permissions
+  file:
+    state: touch
+    path: "{{ item }}"
+    owner: "{{ php_user }}"
+    group: wcadmin
+    mode: 0664
+  with_items:
+    - "{{ php_fpm_log_path }}"
+    - "{{ php_error_log_path }}"
+    - "{{ php_slow_log_path }}"
