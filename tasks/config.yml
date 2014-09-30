@@ -6,11 +6,12 @@
     option: "{{ item.option }}"
     value: "{{ item.value }}"
   with_items:
+    - { option: 'listen',               value: "{{ php_fpm_socket_path }}" }
     - { option: 'pm.max_children',      value: "{{ php_max_children }}"  }
-    - { option: 'pm.start_servers',     value: "{{ php_start_servers }}" }
-    - { option: 'pm.min_spare_servers', value: "{{ php_min_spare_servers }}" }
-    - { option: 'pm.max_spare_servers', value: "{{ php_max_spare_servers }}" }
     - { option: 'pm.max_requests',      value: "{{ php_max_requests }}" }
+    - { option: 'pm.max_spare_servers', value: "{{ php_max_spare_servers }}" }
+    - { option: 'pm.min_spare_servers', value: "{{ php_min_spare_servers }}" }
+    - { option: 'pm.start_servers',     value: "{{ php_start_servers }}" }
   notify: Reload Service | php5-fpm
   tags:
     - configuration
@@ -25,9 +26,11 @@
     option: "{{ item.option }}"
     value: "{{ item.value }}"
   with_items:
-    - { option: 'expose_php',      value: "{% if php_hide_version %}Off{% else %}On{% endif %}" }
-    - { option: 'short_open_tag',  value: "{% if php_short_open_tag %}On{% else %}Off{% endif %}" }
-    - { option: 'display_errors',  value: "{% if php_display_errors %}On{% else %}Off{% endif %}" }
+    - { option: 'display_errors',      value: "{% if php_display_errors %}On{% else %}Off{% endif %}" }
+    - { option: 'expose_php',          value: "{% if php_hide_version %}Off{% else %}On{% endif %}" }
+    - { option: 'post_max_size',       value: "{{ php_post_max_size }}" }
+    - { option: 'short_open_tag',      value: "{% if php_short_open_tag %}On{% else %}Off{% endif %}" }
+    - { option: 'upload_max_filesize', value: "{{ php_upload_max_filesize }}" }
   notify: Reload Service | php5-fpm
   tags:
     - configuration
