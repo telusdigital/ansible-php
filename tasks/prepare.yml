@@ -7,8 +7,8 @@
     group: wcadmin
     mode: 0775
   with_items:
-    - php_log_root
-    - php_runtime_root
+    - "{{ php_log_root }}"
+    - "{{ php_runtime_root }}"
   tags:
     - filesystem-layout
     - php
