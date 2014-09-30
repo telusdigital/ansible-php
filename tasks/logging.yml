@@ -11,55 +11,35 @@
     - logging
     - php
 
-- name: Configure | php5-fpm | fpm logfile
-  lineinfile:
-    state: present
+- name: Configure | php5-fpm | php-fpm.conf
+  ini_file:
     dest: /etc/php5/fpm/php-fpm.conf
-    regexp: '^;* *error_log = '
-    line: "error_log = {{ php_fpm_log_path }}"
+    section: global
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+  with_items:
+    - { option: 'error_log',               value: "{{ php_fpm_log_path }}" }
+    - { option: 'request_slowlog_timeout', value: "{{ php_slow_threshold }}" }
+    - { option: 'slowlog',                 value: "{{ php_slow_log_path }}" }
   notify: Reload Service | php5-fpm
   tags:
     - configuration
-    - precise-configuration
+    - ini-configuration
     - logging
     - php
 
-- name: Configure | php5-fpm | php logfile
-  lineinfile:
-    state: present
+- name: Configure | php5-fpm | php-fpm.conf
+  ini_file:
     dest: /etc/php5/fpm/php.ini
-    regexp: '^;* *error_log = '
-    line: "error_log = {{ php_error_log_path }}"
+    section: PHP
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+  with_items:
+    - { option: 'error_log',               value: "{{ php_error_log_path }}" }
   notify: Reload Service | php5-fpm
   tags:
     - configuration
-    - precise-configuration
-    - logging
-    - php
-
-- name: Configure | php5-fpm | slow logfile
-  lineinfile:
-    state: present
-    dest: /etc/php5/fpm/php-fpm.conf
-    regexp: '^;* *slowlog = '
-    line: "slowlog = {{ php_slow_log_path }}"
-  notify: Reload Service | php5-fpm
-  tags:
-    - configuration
-    - precise-configuration
-    - logging
-    - php
-
-- name: Configure | php5-fpm | slow log threshold
-  lineinfile:
-    state: present
-    dest: /etc/php5/fpm/php-fpm.conf
-    regexp: '^;* *request_slowlog_timeout = '
-    line: "request_slowlog_timeout = {{ php_slow_threshold }}"
-  notify: Reload Service | php5-fpm
-  tags:
-    - configuration
-    - precise-configuration
+    - ini-configuration
     - logging
     - php
 
