@@ -4,7 +4,7 @@
     state: latest
     pkg: "{{ item }}"
   with_items:
-    - php5-fpm
+    - "{% if php_fpm %}php5-fpm{% else %}php5-cli{% endif %}"
   tags:
     - software-installation
     - using-apt
@@ -13,5 +13,6 @@
   service:
     state: stopped
     name: php5-fpm
+  when: php_fpm
   tags:
     - disruptive

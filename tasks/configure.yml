@@ -1,4 +1,20 @@
 ---
+- name: Configure | php5-fpm | php-fpm.conf
+  ini_file:
+    dest: /etc/php5/fpm/php-fpm.conf
+    section: global
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+  with_items:
+    - { option: 'error_log',               value: "{{ php_fpm_log_path }}" }
+    - { option: 'pid',                     value: "{{ php_fpm_pidfile_path }}" }
+    - { option: 'request_slowlog_timeout', value: "{{ php_slow_threshold }}" }
+    - { option: 'slowlog',                 value: "{{ php_slow_log_path }}" }
+  notify: Reload Service | php5-fpm
+  tags:
+    - configuration
+    - php
+
 - name: Configure | php5-fpm | pool
   ini_file:
     dest: /etc/php5/fpm/pool.d/www.conf
@@ -15,8 +31,6 @@
   notify: Reload Service | php5-fpm
   tags:
     - configuration
-    - ini-configuration
-    - performance-tuning
     - php
 
 - name: Configure | php5-fpm | php.ini
@@ -27,6 +41,7 @@
     value: "{{ item.value }}"
   with_items:
     - { option: 'display_errors',      value: "{% if php_display_errors %}On{% else %}Off{% endif %}" }
+    - { option: 'error_log',           value: "{{ php_error_log_path }}" }
     - { option: 'expose_php',          value: "{% if php_hide_version %}Off{% else %}On{% endif %}" }
     - { option: 'post_max_size',       value: "{{ php_post_max_size }}" }
     - { option: 'short_open_tag',      value: "{% if php_short_open_tag %}On{% else %}Off{% endif %}" }
@@ -34,6 +49,4 @@
   notify: Reload Service | php5-fpm
   tags:
     - configuration
-    - precise-configuration
-    - improves-security
     - php

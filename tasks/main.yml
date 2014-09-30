@@ -1,5 +1,6 @@
 ---
+- { include: prepare.yml,    when: php_fpm }
 - include: install.yml
-- include: monitoring.yml
-- include: logging.yml
-- include: config.yml
+- { include: monitoring.yml, when: php_fpm }
+- { include: configure.yml,  when: php_fpm }
+- { include: logging.yml,    when: php_fpm }
