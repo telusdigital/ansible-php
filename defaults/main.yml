@@ -13,3 +13,12 @@ php_slow_log_path: "{{ php_log_root }}/slow.log"
 php_slow_threshold: 5s
 
 php_hide_version: yes
+
+php_max_children: 5
+php_start_servers: 2
+php_min_spare_servers: 1
+php_max_spare_servers: 3
+php_max_requests: 500
+
+php_short_open_tag: no
+php_display_errors: yes
