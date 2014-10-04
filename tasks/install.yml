@@ -16,3 +16,22 @@
   when: php_fpm
   tags:
     - disruptive
+
+- name: Composer | Download and Compile
+  shell: "{{ item }}"
+  with_items:
+    - 'curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin'
+    - 'mv /usr/local/bin/composer.phar /usr/local/bin/composer'
+  args:
+    creates: /usr/local/bin/composer
+  when: php_composer
+  tags:
+    - composer
+
+- name: Composer | Set Permissions
+  file:
+    path: /usr/local/bin/composer
+    mode: 0755
+  when: php_composer
+  tags:
+    - composer
