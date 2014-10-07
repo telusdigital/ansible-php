@@ -20,12 +20,12 @@ php_min_spare_servers: 1
 php_max_spare_servers: 3
 php_max_requests: 500
 
-php_short_open_tag: no
+php_short_open_tag: no # Conflicts with XML headers. Deprecated, removal targeted for PHP6+. <?= style short ECHO tags are always enabled in 5.4+
 php_display_errors: yes
 
 php_post_max_size: 8M
 php_upload_max_filesize: 2M
-php_cgi_fix_pathinfo: yes
+php_cgi_fix_pathinfo: yes   # Required to conform to PHP spec. Fix your scripts to use SCRIPT_FILENAME rather than PATH_TRANSLATED if you need to disable this.
 
 php_fpm: yes
 php_composer: no
