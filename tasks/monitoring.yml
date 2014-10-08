@@ -7,8 +7,3 @@
 
 - name: Trigger All Callbacks
   meta: flush_handlers
-
-- name: Confirm Monitoring | php5-fpm
-  monit:
-    state: present
-    name: php5-fpm
