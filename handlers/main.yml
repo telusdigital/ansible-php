@@ -7,5 +7,6 @@
     state: restarted
     name: php5-fpm
   tags:
-    - monit
+    - php5-fpm
+    - using-monit
     - disruptive
