@@ -4,7 +4,7 @@
     state: latest
     pkg: "{{ item }}"
   with_items:
-    - "{% if php_fpm %}php5-fpm{% else %}php5-cli{% endif %}"
+    - "{{ 'php5-fpm' if php_fpm else 'php5-cli' }}"
   tags:
     - software-installation
     - using-apt
