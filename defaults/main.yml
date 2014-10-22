@@ -31,4 +31,4 @@ php_fpm: yes
 php_composer: no
 
 php_modules:
-  - json
+  - php5-json
