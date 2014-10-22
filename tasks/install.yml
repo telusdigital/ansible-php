@@ -9,6 +9,15 @@
     - software-installation
     - using-apt
 
+- name: Install Packages | apt
+  apt:
+    state: latest
+    pkg: "php5-{{ item }}"
+  with_items: php_modules
+  tags:
+    - software-installation
+    - using-apt
+
 - name: Service Stopped | php5-fpm
   service:
     state: stopped
