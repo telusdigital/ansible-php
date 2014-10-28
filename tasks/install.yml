@@ -44,3 +44,25 @@
   when: php_composer
   tags:
     - composer
+
+- name: PHPUnit | Download and Compile
+  shell: "{{ item }}"
+  with_items:
+    - 'wget https://phar.phpunit.de/phpunit.phar'
+    - 'wget https://phar.phpunit.de/phpunit.phar.asc'
+    - 'gpg --keyserver pgp.uni-mainz.de --recv-keys 0x4AA394086372C20A'
+    - 'gpg phpunit.phar.asc'
+    - 'mv phpunit.phar /usr/local/bin/phpunit'
+  args:
+    creates: /usr/local/bin/phpunit
+  when: php_phpunit
+  tags:
+    - phpunit
+
+- name: PHPUnit | Set Permissions
+  file:
+    path: /usr/local/bin/phpunit
+    mode: 0755
+  when: php_phpunit
+  tags:
+    - phpunit
