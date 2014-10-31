@@ -45,12 +45,12 @@
   tags:
     - composer
 
-- name: PHPUnit | Download and Compile
+- name: PHPUnit | Download and Install
   shell: "{{ item }}"
   with_items:
     - 'wget https://phar.phpunit.de/phpunit.phar'
     - 'wget https://phar.phpunit.de/phpunit.phar.asc'
-    - 'gpg --keyserver pgp.uni-mainz.de --recv-keys 0x4AA394086372C20A'
+    - 'gpg --keyserver keyserver.ubuntu.com --recv-keys 0x4AA394086372C20A'
     - 'gpg phpunit.phar.asc'
     - 'mv phpunit.phar /usr/local/bin/phpunit'
   args:
