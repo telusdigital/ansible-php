@@ -66,3 +66,12 @@
   when: php_phpunit
   tags:
     - phpunit
+
+- name: install phpDocumentor
+  get_url: 
+    url: https://phpdoc.org/phpDocumentor.phar
+    dest: /usr/local/bin/phpDocumentor
+    mode: 0755
+  when: php_documentor
+  tags:
+    - phpDocumentor

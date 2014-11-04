@@ -29,6 +29,7 @@ php_cgi_fix_pathinfo: yes   # Required to conform to PHP spec. Fix your scripts 
 
 php_fpm: yes
 php_composer: no
+php_documentor: no
 php_phpunit: no
 
 php_modules:
