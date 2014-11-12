@@ -18,14 +18,6 @@
     - software-installation
     - using-apt
 
-- name: Service Stopped | php5-fpm
-  service:
-    state: stopped
-    name: php5-fpm
-  when: php_fpm
-  tags:
-    - disruptive
-
 - name: Composer | Download and Compile
   shell: "{{ item }}"
   with_items:
