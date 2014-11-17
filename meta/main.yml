@@ -6,3 +6,5 @@ dependencies:
   - role: meta/monitor
     monitor_name: php
     monitor_pidfile: "{{ php_pidfile_path }}"
+    monitor_start_command: /usr/sbin/service php5-fpm start
+    monitor_stop_command: /usr/sbin/service php5-fpm stop
