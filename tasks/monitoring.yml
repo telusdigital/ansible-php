@@ -1,9 +1,0 @@
----
-- name: Upload Config | monit | php5-fpm
-  template:
-    src: etc/monit/conf.d/php5-fpm
-    dest: /etc/monit/conf.d/php5-fpm
-  notify: Reload Service | monit
-
-- name: Trigger All Callbacks
-  meta: flush_handlers
