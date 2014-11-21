@@ -4,10 +4,9 @@ dependencies:
     repository_key: '0x4f4ea0aae5267a6c'
     repository_url: 'deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main'
   - role: meta/monitor
-    monitor_name: php
+    monitor_name: php5-fpm
+    monitor_runtime_root: "{{ php_runtime_root }}"
     monitor_pidfile: "{{ php_fpm_pidfile_path }}"
-    monitor_start_command: /usr/sbin/service php5-fpm start
-    monitor_stop_command: /usr/sbin/service php5-fpm stop
 
   - role: meta/logging
     logging_name: php5-fpm 
