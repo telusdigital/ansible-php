@@ -12,9 +12,14 @@ dependencies:
   - role: meta/logging
     logging_name: php5-fpm 
     logging_files:
-      - tags: 'service'
+      - tags:
+          - service
         path: "{{ php_fpm_log_path }}"
-      - tags: 'application, error'
+      - tags:
+          - application
+          - error
         path: "{{ php_error_log_path }}"
-      - tags: 'application, slow'
+      - tags:
+          - application
+          - slow
         path: "{{ php_slow_log_path }}"
