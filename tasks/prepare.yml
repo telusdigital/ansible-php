@@ -4,7 +4,7 @@
     state: directory
     path: "{{ item }}"
     owner: "{{ php_user }}"
-    group: wcadmin
+    group: wcdevelop
     mode: 0775
   with_items:
     - "{{ php_log_root }}"
@@ -18,7 +18,7 @@
     state: touch
     path: "{{ item }}"
     owner: "{{ php_user }}"
-    group: wcadmin
+    group: wcdevelop
     mode: 0664
   with_items:
     - "{{ php_fpm_log_path }}"
