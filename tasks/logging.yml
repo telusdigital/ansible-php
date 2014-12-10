@@ -1,0 +1,13 @@
+---
+- name: Upload Config | logrotate | php5-fpm
+  template:
+    src: "{{ item }}"
+    dest: "/{{ item }}"
+    owner: root
+    group: wcadmin
+    mode: 0664
+  with_items:
+    - etc/logrotate.d/php5-fpm
+  tags:
+    - nginx
+    - logrotate

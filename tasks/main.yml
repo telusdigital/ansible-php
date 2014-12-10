@@ -2,3 +2,4 @@
 - { include: prepare.yml,    when: php_fpm }
 - include: install.yml
 - { include: configure.yml,  when: php_fpm }
+- { include: logging.yml,    when: php_fpm }
