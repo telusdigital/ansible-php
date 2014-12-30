@@ -22,3 +22,6 @@ dependencies:
           - application
           - slow
         path: "{{ php_slow_log_path }}"
+
+  - role: package/logrotate
+    logrotate_name: php
