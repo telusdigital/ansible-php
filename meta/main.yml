@@ -8,7 +8,7 @@ dependencies:
     monitor_runtime_root: "{{ php_runtime_root }}"
     monitor_pidfile: "{{ php_fpm_pidfile_path }}"
 
-  - role: meta/logging
+  - role: meta/log-aggregator
     logging_name: php5-fpm 
     logging_files:
       - tags:
