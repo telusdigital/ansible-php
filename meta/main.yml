@@ -9,7 +9,7 @@ dependencies:
     monitor_pidfile: "{{ php_fpm_pidfile_path }}"
 
 # New logging method awaiting php regex formatting
-#   - role: packages/fluentd
+#   - role: package/fluentd
 #     fluentd_sources:
 #       - path: "{{ php_fpm_log_path }}"
 #         format: ''
