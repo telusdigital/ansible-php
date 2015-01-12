@@ -2,7 +2,7 @@
 php_user: www-data
 
 php_runtime_root: "{{ runtime_root }}/php"
-php_fpm_pidfile_path: "{{ php_runtime_root }}/fpm.pid"
+php_fpm_pidfile_path: "{{ php_runtime_root }}/php.pid"
 php_fpm_socket_path: "{{ php_runtime_root }}/fpm.sock"
 
 php_log_root: "{{ log_root }}/php"
