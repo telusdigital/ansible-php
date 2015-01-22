@@ -1,11 +1,11 @@
 ---
 php_user: www-data
 
-php_runtime_root: "{{ runtime_root }}/php"
+php_runtime_root: "{{ runtime_root | default('/var/run') }}/php"
 php_fpm_pidfile_path: "{{ php_runtime_root }}/php.pid"
 php_fpm_socket_path: "{{ php_runtime_root }}/fpm.sock"
 
-php_log_root: "{{ log_root }}/php"
+php_log_root: "{{ log_root | default('/var/log') }}/php"
 php_fpm_log_path: "{{ php_log_root }}/fpm.log"
 php_error_log_path: "{{ php_log_root }}/error.log"
 php_slow_log_path: "{{ php_log_root }}/slow.log"
