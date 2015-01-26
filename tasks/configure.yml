@@ -48,6 +48,7 @@
     - { option: 'post_max_size',       value: "{{ php_post_max_size }}" }
     - { option: 'short_open_tag',      value: "{% if php_short_open_tag %}On{% else %}Off{% endif %}" }
     - { option: 'upload_max_filesize', value: "{{ php_upload_max_filesize }}" }
+    - { option: 'memory_limit',        value: "{{ php_memory_limit }}"}
 
   notify: Reload Service | php5-fpm
   tags:
