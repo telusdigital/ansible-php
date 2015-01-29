@@ -23,3 +23,4 @@ dependencies:
   - role: package/logrotate
     logrotate_name: php
     logrotate_notify_pidfile: "{{ php_fpm_pidfile_path }}"
+    logrotate_create_logs_with_owner: "{{ php_user }}"
