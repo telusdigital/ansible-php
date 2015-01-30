@@ -49,7 +49,7 @@
     - { option: 'short_open_tag',      value: "{% if php_short_open_tag %}On{% else %}Off{% endif %}" }
     - { option: 'upload_max_filesize', value: "{{ php_upload_max_filesize }}" }
     - { option: 'memory_limit',        value: "{{ php_memory_limit }}"}
-
+    - { option: 'max_execution_time',  value: "{{ php_max_execution_time }}"}
   notify: Reload Service | php5-fpm
   tags:
     - configuration

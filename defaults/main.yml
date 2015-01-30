@@ -27,6 +27,7 @@ php_post_max_size: 8M
 php_upload_max_filesize: 2M
 php_cgi_fix_pathinfo: yes   # Required to conform to PHP spec. Fix your scripts to use SCRIPT_FILENAME rather than PATH_TRANSLATED if you need to disable this.
 php_memory_limit: 128M
+php_max_execution_time: 30
 
 php_fpm: yes
 php_composer: no
