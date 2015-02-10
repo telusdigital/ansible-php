@@ -33,6 +33,7 @@ php_fpm: yes
 php_composer: no
 php_documentor: no
 php_phpunit: no
+php_sodium: no
 
 php_modules:
   - php5-json

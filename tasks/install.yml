@@ -67,3 +67,39 @@
   when: php_documentor
   tags:
     - phpDocumentor
+
+- name: Sodium | Clone
+  sudo: yes
+  ignore_errors: yes
+  shell: "{{ item }}"
+  with_items:
+    - 'cd /tmp/ && git clone https://github.com/jedisct1/libsodium'
+  tags:
+    - sodium
+
+- name: Sodium | Update, compile and configire
+  sudo: yes
+  shell: "{{ item }}"
+  with_items:
+    - 'cd /tmp/libsodium/ && git pull'
+    - 'cd /tmp/libsodium/ && ./autogen.sh'
+    - 'cd /tmp/libsodium/ && ./configure'
+    - 'cd /tmp/libsodium/ && make && make check'
+    - 'cd /tmp/libsodium/ && make install'
+    - 'echo "extension=libsodium.so" >> /etc/php5/mods-available/libsodium.ini'
+    - 'php5enmod libsodium'
+  when: php_sodium
+  tags:
+    - sodium
+
+- name: Sodium | Install PHP extention
+  sudo: yes
+  ignore_errors: yes
+  shell: "{{ item }}"
+  with_items:
+    - 'pecl install channel://pecl.php.net/libsodium-0.1.1'
+  notify:
+    - Reload Service | nginx
+    - Reload Service | php5-fpm
+  tags:
+    - sodium
