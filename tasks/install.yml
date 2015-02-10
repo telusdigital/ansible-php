@@ -104,9 +104,7 @@
 - name: Sodium | Install PHP extention
   sudo: yes
   ignore_errors: yes
-  shell: "{{ item }}"
-  with_items:
-    - 'pecl install channel://pecl.php.net/libsodium-0.1.1'
+  shell: pecl install channel://pecl.php.net/libsodium-0.1.1
   notify:
     - Reload Service | nginx
     - Reload Service | php5-fpm
