@@ -68,6 +68,15 @@
   tags:
     - phpDocumentor
 
+- name: Sodium | Install php5-dev | apt
+  apt:
+    state: latest
+    pkg: php5-dev
+  tags:
+    - software-installation
+    - using-apt
+    - sodium
+
 - name: Sodium | Clone
   sudo: yes
   ignore_errors: yes
