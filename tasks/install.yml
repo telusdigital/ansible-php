@@ -78,7 +78,6 @@
     - sodium
 
 - name: Sodium | Git
-  sudo: yes
   git:
     repo: https://github.com/jedisct1/libsodium
     dest: /tmp/libsodium/
