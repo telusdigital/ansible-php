@@ -77,12 +77,11 @@
     - using-apt
     - sodium
 
-- name: Sodium | Clone
+- name: Sodium | Git
   sudo: yes
-  ignore_errors: yes
-  shell: "{{ item }}"
-  with_items:
-    - 'cd /tmp/ && git clone https://github.com/jedisct1/libsodium'
+  git:
+    repo: https://github.com/jedisct1/libsodium
+    dest: /tmp/libsodium/
   tags:
     - sodium
 
@@ -90,7 +89,6 @@
   sudo: yes
   shell: "{{ item }}"
   with_items:
-    - 'cd /tmp/libsodium/ && git pull'
     - 'cd /tmp/libsodium/ && ./autogen.sh'
     - 'cd /tmp/libsodium/ && ./configure'
     - 'cd /tmp/libsodium/ && make && make check'
