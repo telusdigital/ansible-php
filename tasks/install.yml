@@ -86,7 +86,7 @@
   tags:
     - sodium
 
-- name: Sodium | Update, compile and configire
+- name: Sodium | Update, compile and configure
   sudo: yes
   shell: "{{ item }}"
   with_items:
