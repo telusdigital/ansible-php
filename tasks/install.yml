@@ -72,6 +72,7 @@
   apt:
     state: latest
     pkg: php5-dev
+  when: php_sodium
   tags:
     - software-installation
     - using-apt
@@ -81,6 +82,7 @@
   git:
     repo: https://github.com/jedisct1/libsodium
     dest: /tmp/libsodium/
+  when: php_sodium
   tags:
     - sodium
 
