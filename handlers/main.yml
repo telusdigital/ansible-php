@@ -1,12 +1,7 @@
 ---
-- name: Reload Service | monit
-  command: monit reload
-
 - name: Reload Service | php5-fpm
-  monit:
-    state: restarted
+  service:
+    state: reloaded
     name: php5-fpm
   tags:
-    - php5-fpm
-    - using-monit
     - disruptive
