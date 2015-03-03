@@ -107,5 +107,6 @@
   notify:
     - Reload Service | nginx
     - Reload Service | php5-fpm
+  when: php_sodium
   tags:
     - sodium
