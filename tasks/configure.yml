@@ -23,12 +23,13 @@
     option: "{{ item.option }}"
     value: "{{ item.value }}"
   with_items:
-    - { option: 'listen',               value: "{{ php_fpm_socket_path }}" }
-    - { option: 'pm.max_children',      value: "{{ php_max_children }}"  }
-    - { option: 'pm.max_requests',      value: "{{ php_max_requests }}" }
-    - { option: 'pm.max_spare_servers', value: "{{ php_max_spare_servers }}" }
-    - { option: 'pm.min_spare_servers', value: "{{ php_min_spare_servers }}" }
-    - { option: 'pm.start_servers',     value: "{{ php_start_servers }}" }
+    - { option: 'listen',                     value: "{{ php_fpm_socket_path }}" }
+    - { option: 'pm.max_children',            value: "{{ php_max_children }}"  }
+    - { option: 'pm.max_requests',            value: "{{ php_max_requests }}" }
+    - { option: 'pm.max_spare_servers',       value: "{{ php_max_spare_servers }}" }
+    - { option: 'pm.min_spare_servers',       value: "{{ php_min_spare_servers }}" }
+    - { option: 'pm.start_servers',           value: "{{ php_start_servers }}" }
+    - { option: 'request_terminate_timeout',  value: "{{ php_request_terminate_timeout }}" }
   notify: Reload Service | php5-fpm
   tags:
     - configuration
