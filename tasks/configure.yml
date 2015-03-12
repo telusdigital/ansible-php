@@ -51,6 +51,7 @@
     - { option: 'upload_max_filesize', value: "{{ php_upload_max_filesize }}" }
     - { option: 'memory_limit',        value: "{{ php_memory_limit }}"}
     - { option: 'max_execution_time',  value: "{{ php_max_execution_time }}"}
+    - { option: 'max_input_vars',      value: "{{ php_max_input_vars }}"}
   notify: Reload Service | php5-fpm
   tags:
     - configuration
