@@ -39,15 +39,15 @@ Tunables
 
 Dependencies
 ------------
-* [colstrom.apt-repository](https://github.com/colstrom/ansible-apt-repository/)
-* [colstrom.fluentd](https://github.com/colstrom/ansible-fluentd/)
-* [colstrom.logrotate](https://github.com/colstrom/ansible-logrotate/)
+* [telusdigital.apt-repository](https://github.com/telusdigital/ansible-apt-repository/)
+* [telusdigital.fluentd](https://github.com/telusdigital/ansible-fluentd/)
+* [telusdigital.logrotate](https://github.com/telusdigital/ansible-logrotate/)
 
 Example Playbook
 ----------------
     - hosts: servers
       roles:
-         - role: colstrom.php
+         - role: telusdigital.php
            php_modules:
              - php5-curl
              - php5-redis
