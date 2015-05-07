@@ -21,7 +21,7 @@ dependencies:
 galaxy_info:
   author: "Chris Olstrom"
   company: "TELUS digital"
-  description: "PHP is a popular general-purpose scripting language that is especially suited to web development."
+  description: "PHP is a popular general-purpose scripting language that is popular in web development."
   license: MIT
   platforms:
     - name: Ubuntu

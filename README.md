@@ -1,6 +1,6 @@
 # ansible-php
 
-[PHP](https://php.net/) is a popular general-purpose scripting language that is especially suited to web development.
+[PHP](https://php.net/) is a popular general-purpose scripting language that is popular in web development.
 
 [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 
