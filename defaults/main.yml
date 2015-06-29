@@ -14,11 +14,11 @@ php_slow_threshold: 5s
 
 php_hide_version: yes
 
-php_max_children: 5
-php_start_servers: 2
-php_min_spare_servers: 1
-php_max_spare_servers: 3
-php_max_requests: "{{ 16 * ansible_processors_vcpus }}"
+php_max_children: "{{ 16 * ansible_processors_vcpus }}"
+php_start_servers: "{{ ((php_max_children | float) * 0.4) | round | int }}"
+php_min_spare_servers: "{{ ((php_max_children | float) * 0.2) | round | int }}"
+php_max_spare_servers: "{{ ((php_max_children | float) * 0.6) | round | int }}"
+php_max_requests: 500
 
 php_short_open_tag: no # Conflicts with XML headers. Deprecated, removal targeted for PHP6+. <?= style short ECHO tags are always enabled in 5.4+
 php_display_errors: yes
