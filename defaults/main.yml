@@ -14,7 +14,7 @@ php_slow_threshold: 5s
 
 php_hide_version: yes
 
-php_max_children: "{{ 16 * ansible_processors_vcpus }}"
+php_max_children: "{{ 16 * ansible_processor_vcpus }}"
 php_start_servers: "{{ ((php_max_children | float) * 0.4) | round | int }}"
 php_min_spare_servers: "{{ ((php_max_children | float) * 0.2) | round | int }}"
 php_max_spare_servers: "{{ ((php_max_children | float) * 0.6) | round | int }}"
