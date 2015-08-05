@@ -8,10 +8,10 @@ dependencies:
     fluentd_sources:
       - path: "{{ php_fpm_log_path }}"
         format: '/^\[(?<date_time>(?<date>[^ ]*) (?<time>[^]]*)[^]]*)\] (?<notice>\w+): (?<message>.*)/'
-        tag: php.service
+        tag: reformed.elasticsearch.php.service
       - path: "{{ php_error_log_path }}"
-        format: '/^\[(?<date_time>(?<date>[^ ]*) (?<time>[^ ]*) (?<timezone>\w*)\]*) (?<type>[\w\s]+):\s+(?<message>.*)/'
-        tag: php.error
+        format: '/^(?<time>[^ ]+ [^ ]+ [^ ]+) \[(?<project>[^]]*)\] \[(?<session_id>[^]]*)\] \[(?<log_level>[^]]*)\] - (?<message>.*)/'
+        tag: reformed.elasticsearch.php.error
       # - path: "{{ php_slow_log_path }}"
       #   format: '/^.*/'
       #   tag: php.slow
