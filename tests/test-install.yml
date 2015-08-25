@@ -24,3 +24,6 @@
       logrotate_notify_pidfile: "{{ php_fpm_pidfile_path }}"
       logrotate_create_logs_with_owner: www-data
     - role: ansible-php
+  vars:
+    system_role: travis
+    project: travis
