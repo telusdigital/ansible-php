@@ -16,7 +16,7 @@ install:
   - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
 
   # Download dependencies
-  - ansible-galaxy install telusdigital.apt-repository telusdigital.fluentd telusdigital.logrotate
+  - ansible-galaxy install telusdigital.apt-repository telusdigital.fluentd telusdigital.logrotate telusdigital.upstart
 
 script:
   # Check the role/playbook's syntax.
