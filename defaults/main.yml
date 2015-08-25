@@ -1,5 +1,6 @@
 ---
 php_user: www-data
+php_group: www-data
 
 php_runtime_root: "{{ runtime_root | default('/var/run') }}/php"
 php_fpm_pidfile_path: "{{ php_runtime_root }}/php.pid"
