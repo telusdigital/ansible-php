@@ -12,11 +12,11 @@ install:
   # Install Ansible.
   - pip install ansible
 
-  # Download dependencies
-  # - "ansible-galaxy install telusdigital.apt-repository"
-
   # Add ansible.cfg to pick up roles path.
   - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
+
+  # Download dependencies
+  - ansible-galaxy install telusdigital.apt-repository telusdigital.fluentd telusdigital.logrotate
 
 script:
   # Check the role/playbook's syntax.

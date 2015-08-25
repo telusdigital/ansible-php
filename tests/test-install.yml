@@ -2,4 +2,7 @@
 - hosts: localhost
   remote_user: root
   roles:
+    - telusdigital.apt-repository
+    - telusdigital.fluentd
+    - telusdigital.logrotate
     - ansible-php
