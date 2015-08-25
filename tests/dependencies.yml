@@ -1,0 +1,4 @@
+---
+- src: https://github.com/noqcks/ansible-php
+  name: ansible-php
+  scm: git
