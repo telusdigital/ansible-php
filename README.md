@@ -40,7 +40,6 @@ Tunables
 Dependencies
 ------------
 * [telusdigital.apt-repository](https://github.com/telusdigital/ansible-apt-repository/)
-* [telusdigital.fluentd](https://github.com/telusdigital/ansible-fluentd/)
 * [telusdigital.logrotate](https://github.com/telusdigital/ansible-logrotate/)
 
 Example Playbook
