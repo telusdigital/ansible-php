@@ -44,3 +44,4 @@ script:
 
   # And for posterity...
   - php -v
+
