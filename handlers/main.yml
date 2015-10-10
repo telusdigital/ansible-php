@@ -1,7 +1,20 @@
 ---
-- name: Reload Service | php5-fpm
+- name: service | php5-fpm | started
+  service:
+    name: php5-fpm
+    state: started
+
+- name: service | php5-fpm | stopped
+  service:
+    name: php5-fpm
+    state: stopped
+
+- name: service | php5-fpm | restarted
+  service:
+    state: restarted
+    name: php5-fpm
+
+- name: service | php5-fpm | reloaded
   service:
     state: reloaded
     name: php5-fpm
-  tags:
-    - disruptive
