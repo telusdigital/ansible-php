@@ -42,16 +42,17 @@
     option: "{{ item.option }}"
     value: "{{ item.value }}"
   with_items:
-    - { option: 'cgi.fix_pathinfo',    value: "{% if php_cgi_fix_pathinfo %}1{% else %}0{% endif %}" }
-    - { option: 'display_errors',      value: "{% if php_display_errors %}On{% else %}Off{% endif %}" }
-    - { option: 'error_log',           value: "{{ php_error_log_path }}" }
-    - { option: 'expose_php',          value: "{% if php_hide_version %}Off{% else %}On{% endif %}" }
-    - { option: 'post_max_size',       value: "{{ php_post_max_size }}" }
-    - { option: 'short_open_tag',      value: "{% if php_short_open_tag %}On{% else %}Off{% endif %}" }
-    - { option: 'upload_max_filesize', value: "{{ php_upload_max_filesize }}" }
-    - { option: 'memory_limit',        value: "{{ php_memory_limit }}"}
-    - { option: 'max_execution_time',  value: "{{ php_max_execution_time }}"}
-    - { option: 'max_input_vars',      value: "{{ php_max_input_vars }}"}
+    - { option: 'cgi.fix_pathinfo',      value: "{% if php_cgi_fix_pathinfo %}1{% else %}0{% endif %}" }
+    - { option: 'display_errors',        value: "{% if php_display_errors %}On{% else %}Off{% endif %}" }
+    - { option: 'error_log',             value: "{{ php_error_log_path }}" }
+    - { option: 'expose_php',            value: "{% if php_hide_version %}Off{% else %}On{% endif %}" }
+    - { option: 'post_max_size',         value: "{{ php_post_max_size }}" }
+    - { option: 'short_open_tag',        value: "{% if php_short_open_tag %}On{% else %}Off{% endif %}" }
+    - { option: 'upload_max_filesize',   value: "{{ php_upload_max_filesize }}" }
+    - { option: 'memory_limit',          value: "{{ php_memory_limit }}"}
+    - { option: 'max_execution_time',    value: "{{ php_max_execution_time }}"}
+    - { option: 'max_input_vars',        value: "{{ php_max_input_vars }}"}
+    - { option: 'session.cookie_secure', value: "{% if php_cookie_secure %}On{% else %}Off{% endif %}" }
   notify: Reload Service | php5-fpm
   tags:
     - configuration

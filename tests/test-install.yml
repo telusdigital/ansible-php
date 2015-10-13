@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    - role: telusdigital.apt-repository
+      repository_key: "0x4f4ea0aae5267a6c"
+      repository_url: "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu {{ ansible_distribution_release }} main"
+    - role: telusdigital.logrotate
+      logrotate_name: php
+      logrotate_notify_pidfile: "{{ php_fpm_pidfile_path }}"
+      logrotate_create_logs_with_owner: www-data
+    - role: ansible-php
+  vars:
+    system_role: travis
+    project: travis
+    environment_tier: travis
+    domain: travis

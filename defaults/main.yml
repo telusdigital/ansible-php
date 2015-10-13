@@ -23,6 +23,7 @@ php_max_requests: 500
 
 php_short_open_tag: no # Conflicts with XML headers. Deprecated, removal targeted for PHP6+. <?= style short ECHO tags are always enabled in 5.4+
 php_display_errors: yes
+php_cookie_secure: no
 
 php_post_max_size: 8M
 php_upload_max_filesize: 2M
@@ -37,6 +38,8 @@ php_composer: no
 php_documentor: no
 php_phpunit: no
 php_sodium: no
+
+php_documentor_validate_certs: yes
 
 php_modules:
   - php5-json
