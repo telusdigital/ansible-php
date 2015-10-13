@@ -37,5 +37,7 @@ php_documentor: no
 php_phpunit: no
 php_sodium: no
 
+php_documentor_validate_certs: yes
+
 php_modules:
   - php5-json
