@@ -32,6 +32,9 @@ php_memory_limit: 128M
 php_max_execution_time: 30
 php_request_terminate_timeout: 0
 php_max_input_vars: 1000
+php_timestampformat: "%Y-%m-%d %H:%M:%S:%u"
+php_timeformat: "%H:%M:%S:%u"
+
 
 php_fpm: yes
 php_composer: no
