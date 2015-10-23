@@ -2,8 +2,7 @@
 
 [PHP](https://php.net/) is a popular general-purpose scripting language that is popular in web development.
 
-[![Build Status](https://travis-ci.org/noqcks/ansible-php.svg?branch=travis)](https://travis-ci.org/noqcks/ansible-php)
-[![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
+[![Build Status](https://travis-ci.org/telusdigital/ansible-php.svg?branch=master)](https://travis-ci.org/telusdigital/ansible-php)[![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 
 
 Tunables
