@@ -13,9 +13,22 @@
     - filesystem-layout
     - php
 
-- name: Files Exist with Correct Permissions
+- name: Files Exist
+  copy:
+    content: ""
+    dest: "{{ item }}"
+    owner: "{{ php_user }}"
+    group: "{{ php_group }}"
+    mode: 0664
+    force: no
+  with_items:
+    - "{{ php_fpm_log_path }}"
+    - "{{ php_error_log_path }}"
+    - "{{ php_slow_log_path }}"
+
+- name: Files Have Correct Permissions
   file:
-    state: touch
+    state: file
     path: "{{ item }}"
     owner: "{{ php_user }}"
     group: "{{ php_group }}"
