@@ -107,7 +107,7 @@
   shell: pecl install channel://pecl.php.net/libsodium-0.1.1
   notify:
     - Reload Service | nginx
-    - Reload Service | php5-fpm
+    - service | php5-fpm | reloaded
   when: php_sodium
   tags:
     - sodium
