@@ -45,6 +45,7 @@
     - 'gpg --keyserver keyserver.ubuntu.com --recv-keys 0x4AA394086372C20A'
     - 'gpg phpunit.phar.asc'
     - 'mv phpunit.phar /usr/local/bin/phpunit'
+    - 'rm phpunit.phar.asc'
   args:
     creates: /usr/local/bin/phpunit
   when: php_phpunit
