@@ -106,6 +106,7 @@
     state: present
     line: "extension=libsodium.so"
     dest: /etc/php5/mods-available/libsodium.ini
+  when: php_sodium
   tags:
     - sodium
 
