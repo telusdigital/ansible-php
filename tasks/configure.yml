@@ -53,8 +53,6 @@
     - { option: 'max_execution_time',    value: "{{ php_max_execution_time }}"}
     - { option: 'max_input_vars',        value: "{{ php_max_input_vars }}"}
     - { option: 'session.cookie_secure', value: "{% if php_cookie_secure %}On{% else %}Off{% endif %}" }
-    - { option: 'ibase.timestampformat', value: "{{ php_timestampformat }}" }
-    - { option: 'ibase.timeformat',      value: "{{ php_timeformat }}" }
   notify: Reload Service | php5-fpm
   tags:
     - configuration
