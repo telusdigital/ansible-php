@@ -114,6 +114,7 @@
   sudo: yes
   ignore_errors: yes
   shell: pecl install channel://pecl.php.net/libsodium-1.0.2
+  failed_when: "not (('already installed' in pecl_result.stdout) or ('install ok:' in pecl_result.stdout))"
   notify:
     - Reload Service | nginx
     - service | php5-fpm | reloaded
