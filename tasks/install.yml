@@ -101,10 +101,17 @@
   tags:
     - sodium
 
+- name: "Sodium | touch libsodium.ini"
+  file:
+    state: present
+    dest: /etc/php5/mods-available/libsodium.ini
+  when: php_sodium
+  tags:
+    - sodium
+
 - name: "Sodium | configure"
   lineinfile:
     state: present
-    force: yes
     line: "extension=libsodium.so"
     dest: /etc/php5/mods-available/libsodium.ini
   when: php_sodium
