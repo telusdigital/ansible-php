@@ -105,7 +105,7 @@
 
 - name: "Sodium | touch libsodium.ini"
   file:
-    state: present
+    state: touch
     dest: /etc/php5/mods-available/libsodium.ini
   when: php_sodium
   tags:
