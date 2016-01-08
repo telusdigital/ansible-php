@@ -84,6 +84,7 @@
   git:
     repo: https://github.com/jedisct1/libsodium
     dest: /tmp/libsodium/
+    version: 1.0.8
   when: php_sodium
   tags:
     - sodium
@@ -97,7 +98,17 @@
     - 'cd /tmp/libsodium/ && ./configure'
     - 'cd /tmp/libsodium/ && make && make check'
     - 'cd /tmp/libsodium/ && make install'
-    - 'php5enmod libsodium'
+  when: php_sodium
+  tags:
+    - sodium
+
+- name: Sodium | Install PHP extension
+  sudo: yes
+  ignore_errors: yes
+  shell: pecl install channel://pecl.php.net/libsodium-1.0.2
+  notify:
+    - Reload Service | nginx
+    - service | php5-fpm | reloaded
   when: php_sodium
   tags:
     - sodium
@@ -119,13 +130,9 @@
   tags:
     - sodium
 
-- name: Sodium | Install PHP extension
+- name: "Sodium | php5enmod libsodium"
   sudo: yes
-  ignore_errors: yes
-  shell: pecl install channel://pecl.php.net/libsodium-1.0.2
-  notify:
-    - Reload Service | nginx
-    - service | php5-fpm | reloaded
+  shell: "php5enmod libsodium"
   when: php_sodium
   tags:
     - sodium
