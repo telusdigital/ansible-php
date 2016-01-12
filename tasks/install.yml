@@ -84,7 +84,7 @@
   git:
     repo: https://github.com/jedisct1/libsodium
     dest: /tmp/libsodium/
-    version: 1.0.8
+    version: stable
   when: php_sodium
   tags:
     - sodium
