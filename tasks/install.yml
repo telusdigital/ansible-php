@@ -40,7 +40,7 @@
 - name: PHPUnit | Download Phar
   get_url:
     url: https://phar.phpunit.de/phpunit.phar
-    dest: /usr/local/bin/phpunit/phpunit.phar
+    dest: /usr/local/bin/phpunit
 
 - name: PHPUnit | Get Keys
   get_url:
