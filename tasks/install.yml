@@ -41,6 +41,7 @@
   get_url:
     url: https://phar.phpunit.de/phpunit.phar
     dest: /usr/local/bin/phpunit
+    mode: 0755
   when: php_phpunit
 
 ## TODO:
@@ -60,14 +61,6 @@
   # when: php_phpunit
   # tags:
   #   - phpunit
-
-- name: PHPUnit | Set Permissions
-  file:
-    path: /usr/local/bin/phpunit
-    mode: 0755
-  when: php_phpunit
-  tags:
-    - phpunit
 
 - name: install phpDocumentor
   get_url:
