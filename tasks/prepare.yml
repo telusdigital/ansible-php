@@ -1,17 +1,26 @@
 ---
-- name: Directories Exists
+- name: "Directory Exists | {{ php_log_root }}"
   file:
     state: directory
-    path: "{{ item }}"
+    path: "{{ php_log_root }}"
     owner: "{{ php_user }}"
     group: "{{ php_group }}"
     mode: 0775
-  with_items:
-    - "{{ php_log_root }}"
-    - "{{ php_runtime_root }}"
   tags:
     - filesystem-layout
     - php
+
+- name: "Directory Exists | {{ php_runtime_root }}"
+  file:
+    state: directory
+    path: "{{ php_runtime_root }}"
+    owner: "{{ php_user }}"
+    group: "{{ php_group }}"
+    mode: 0775
+  tags:
+    - filesystem-layout
+    - php
+
 
 - name: Files Exist
   copy:
