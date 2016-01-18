@@ -10,8 +10,9 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  # Install Ansible.
-  - pip install ansible==1.9.4
+  ## Install Ansible.
+  ## TODO: REMOVE <2 once ansible 2.0 becomes more stable
+  - pip install 'ansible<2'
 
   # Add ansible.cfg to pick up roles path.
   - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
