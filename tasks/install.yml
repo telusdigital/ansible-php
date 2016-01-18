@@ -37,28 +37,30 @@
   tags:
     - composer
 
-- name: PHPUnit | Download and Install
-  shell: "{{ item }}"
-  with_items:
-    - 'wget https://phar.phpunit.de/phpunit.phar'
-    - 'wget https://phar.phpunit.de/phpunit.phar.asc'
-    - 'gpg --keyserver keyserver.ubuntu.com --recv-keys 0x4AA394086372C20A'
-    - 'gpg phpunit.phar.asc'
-    - 'mv phpunit.phar /usr/local/bin/phpunit'
-    - 'rm phpunit.phar.asc'
-  args:
-    creates: /usr/local/bin/phpunit
-  when: php_phpunit
-  tags:
-    - phpunit
-
-- name: PHPUnit | Set Permissions
-  file:
-    path: /usr/local/bin/phpunit
+- name: PHPUnit | Download Phar
+  get_url:
+    url: https://phar.phpunit.de/phpunit.phar
+    dest: /usr/local/bin/phpunit
     mode: 0755
   when: php_phpunit
-  tags:
-    - phpunit
+
+## TODO:
+## Uncomment this when issue is fixed here
+## https://github.com/sebastianbergmann/phpunit-documentation/issues/346
+# - name: PHPUnit | Get PGP Key
+#   get_url:
+#     url: https://phar.phpunit.de/phpunit.phar.asc
+#     dest: /tmp/phpunit.phar.asc
+
+# - name: PHPUnit | Verify PHPUnit Installation
+  # shell: "{{ item }}"
+  # with_items:
+    # - 'gpg --keyserver keyserver.ubuntu.com --recv-keys 0x4AA394086372C20A'
+    # - 'gpg /tmp/phpunit.phar.asc'
+    # - 'rm /tmp/phpunit.phar.asc'
+  # when: php_phpunit
+  # tags:
+  #   - phpunit
 
 - name: install phpDocumentor
   get_url:
