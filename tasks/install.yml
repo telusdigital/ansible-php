@@ -46,12 +46,12 @@
 ## TODO:
 ## Uncomment this when issue is fixed here
 ## https://github.com/sebastianbergmann/phpunit-documentation/issues/346
-# - name: PHPUnit | Get Keys
+# - name: PHPUnit | Get PGP Key
 #   get_url:
 #     url: https://phar.phpunit.de/phpunit.phar.asc
 #     dest: /tmp/phpunit.phar.asc
 
-# - name: PHPUnit | Download and Install
+# - name: PHPUnit | Verify PHPUnit Installation
   # shell: "{{ item }}"
   # with_items:
     # - 'gpg --keyserver keyserver.ubuntu.com --recv-keys 0x4AA394086372C20A'
