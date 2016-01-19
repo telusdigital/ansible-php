@@ -10,7 +10,7 @@ provisioner:
   # name of the host
   hosts: test-kitchen
   # list ansible galaxy requirements from meta/main.yml
-  requirements_path: requirements.txt
+  requirements_path: requirements.yml
 
 
 platforms:
