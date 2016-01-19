@@ -94,7 +94,6 @@
   shell: "{{ item }}"
   with_items:
     - 'cd /tmp/libsodium/ && ./autogen.sh'
-    - 'cd /tmp/libsodium/ && make clean'
     - 'cd /tmp/libsodium/ && ./configure'
     - 'cd /tmp/libsodium/ && make && make check'
     - 'cd /tmp/libsodium/ && make install'
