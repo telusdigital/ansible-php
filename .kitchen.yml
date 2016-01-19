@@ -7,7 +7,6 @@ driver:
 provisioner:
   # use an ansible playbook to provision our server
   name: ansible_playbook
-  ansible_version: 1.9.4
   # name of the host
   hosts: test-kitchen
   # list ansible galaxy requirements from meta/main.yml

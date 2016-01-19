@@ -21,6 +21,17 @@
     - filesystem-layout
     - php
 
+- name: "Directory Exists | /etc/php5/mods-available"
+  file:
+    state: directory
+    path: /etc/php5/mods-available
+    owner: "{{ php_user }}"
+    group: "{{ php_group }}"
+    mode: 0775
+  tags:
+    - filesystem-layout
+    - php
+
 - name: Files Exist
   copy:
     content: ""
