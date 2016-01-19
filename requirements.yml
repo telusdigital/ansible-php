@@ -1,0 +1,3 @@
+---
+- src: telusdigital.apt-repository
+- src: telusdigital.logrotate

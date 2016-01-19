@@ -89,7 +89,7 @@
     - sodium
 
 - name: "Sodium | Update, compile and configure"
-  sudo: yes
+  become: yes
   shell: "{{ item }}"
   with_items:
     - 'cd /tmp/libsodium/ && ./autogen.sh'
@@ -111,7 +111,7 @@
     - sodium
 
 - name: Sodium | Install PHP extension
-  sudo: yes
+  become: yes
   ignore_errors: yes
   shell: pecl install channel://pecl.php.net/libsodium-1.0.2
   notify:

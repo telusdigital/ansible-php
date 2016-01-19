@@ -21,6 +21,16 @@
     - filesystem-layout
     - php
 
+- name: "Directory Exists | /etc/php5/mods-available"
+  file:
+    state: directory
+    path: /etc/php5/mods-available
+    owner: "{{ php_user }}"
+    group: "{{ php_group }}"
+    mode: 0775
+  tags:
+    - filesystem-layout
+    - php
 
 - name: Files Exist
   copy:
@@ -34,6 +44,7 @@
     - "{{ php_fpm_log_path }}"
     - "{{ php_error_log_path }}"
     - "{{ php_slow_log_path }}"
+    - /etc/php5/mods-available/libsodium.ini
 
 - name: Files Have Correct Permissions
   file:
