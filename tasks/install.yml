@@ -90,7 +90,7 @@
     - sodium
 
 - name: "Sodium | Update, compile and configure"
-  sudo: yes
+  become: yes
   shell: "{{ item }}"
   with_items:
     - 'cd /tmp/libsodium/ && ./autogen.sh'

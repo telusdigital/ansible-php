@@ -1,0 +1,13 @@
+---
+# host to test against
+- hosts: test-kitchen
+  remote_user: root
+
+  roles:
+    # name of role to test
+    - role: ansible-php
+      system_role: travis
+      project: travis
+      environment_tier: travis
+      domain: travis
+      php_sodium: yes
