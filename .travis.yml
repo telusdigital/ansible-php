@@ -3,6 +3,10 @@ sudo: required
 # docker is required to run tests
 services: docker
 
+env:
+  - ANSIBLE_VERSION: '<2'
+  - ANSIBLE_VERSION: '>2'
+
 install:
   - bundle install
 

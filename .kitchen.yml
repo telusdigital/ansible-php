@@ -5,6 +5,7 @@ driver:
   privileged: true
 
 provisioner:
+  ansible_version: $ANSIBLE_VERSION
   # use an ansible playbook to provision our server
   name: ansible_playbook
   # name of the host
