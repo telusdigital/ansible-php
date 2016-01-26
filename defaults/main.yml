@@ -38,6 +38,7 @@ php_composer: no
 php_documentor: no
 php_phpunit: no
 php_sodium: no
+php_sodium_version: 0.1.1
 
 php_documentor_validate_certs: yes
 
