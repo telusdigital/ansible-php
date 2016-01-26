@@ -111,7 +111,7 @@
     - sodium
 
 - name: Sodium | Install PHP extension
-  sudo: yes
+  become: yes
   ignore_errors: yes
   shell: "pecl install channel://pecl.php.net/libsodium-{{ php_sodium_version }}"
   notify:
@@ -139,7 +139,7 @@
     - sodium
 
 - name: "Sodium | php5enmod libsodium"
-  sudo: yes
+  become: yes
   shell: "php5enmod libsodium"
   when: php_sodium
   tags:
