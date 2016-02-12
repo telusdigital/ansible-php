@@ -21,7 +21,7 @@
 - name: Composer | Download and Compile
   shell: "{{ item }}"
   with_items:
-    - 'curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin'
+    - 'export COMPOSER_HOME=/usr/local/bin && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin'
     - 'mv /usr/local/bin/composer.phar /usr/local/bin/composer'
   args:
     creates: /usr/local/bin/composer
