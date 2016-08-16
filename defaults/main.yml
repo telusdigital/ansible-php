@@ -2,6 +2,8 @@
 php_user: www-data
 php_group: www-data
 
+php_version: 5
+
 php_runtime_root: "{{ runtime_root | default('/var/run') }}/php"
 php_fpm_pidfile_path: "{{ php_runtime_root }}/php.pid"
 php_fpm_socket_path: "{{ php_runtime_root }}/fpm.sock"
