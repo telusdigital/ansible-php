@@ -5,8 +5,8 @@ php_group: www-data
 php_version: 5
 php_config_root: "/etc/php{% if php_version == 5 %}5{% endif %}/{% if php_version >= 7 %}7.0/{% endif %}"
 php_fpm_service_name: "php{% if php_version == 5 %}5{% endif %}/{% if php_version >= 7 %}7.0{% endif %}-fpm"
-php_fpm_name: "php{% if php_version == 5 %}5{% endif %}/{% if php_version >= 7 %}7.0{% endif %}-fpm"
-php_cli_name: "php{% if php_version == 5 %}5{% endif %}/{% if php_version >= 7 %}7.0{% endif %}-cli"
+php_fpm_name: "php{% if php_version == 5 %}5{% endif %}{% if php_version >= 7 %}7.0{% endif %}-fpm"
+php_cli_name: "php{% if php_version == 5 %}5{% endif %}{% if php_version >= 7 %}7.0{% endif %}-cli"
 
 php_runtime_root: "{{ runtime_root | default('/var/run') }}/php"
 php_fpm_pidfile_path: "{{ php_runtime_root }}/php.pid"
