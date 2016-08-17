@@ -1,20 +1,20 @@
 ---
-- name: service | php5-fpm | started
+- name: service | php-fpm | started
   service:
-    name: php5-fpm
+    name: "{{ php_fpm_service_name }}"
     state: started
 
-- name: service | php5-fpm | stopped
+- name: service | php-fpm | stopped
   service:
-    name: php5-fpm
+    name: "{{ php_fpm_service_name }}"
     state: stopped
 
-- name: service | php5-fpm | restarted
+- name: service | php-fpm | restarted
   service:
+    name: "{{ php_fpm_service_name }}"
     state: restarted
-    name: php5-fpm
 
-- name: service | php5-fpm | reloaded
+- name: service | php-fpm | reloaded
   service:
+    name: "{{ php_fpm_service_name }}"
     state: reloaded
-    name: php5-fpm
