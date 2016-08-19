@@ -21,10 +21,10 @@
     - filesystem-layout
     - php
 
-- name: "Directory Exists | /etc/php5/mods-available"
+- name: "Directory Exists | /etc/php/mods-available"
   file:
     state: directory
-    path: /etc/php5/mods-available
+    path: "{{ php_config_root }}mods-available"
     owner: "{{ php_user }}"
     group: "{{ php_group }}"
     mode: 0775
