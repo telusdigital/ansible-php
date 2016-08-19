@@ -4,7 +4,7 @@
     state: latest
     name: "{{ item }}"
   with_items:
-    - "{{ 'php5-fpm' if php_fpm else 'php5-cli' }}"
+    - "{% if php_fpm %}{{ php_fpm_name }}{% else %}{{ php_cli_name }}{% endif %}"
   tags:
     - software-installation
     - using-apt
@@ -116,7 +116,7 @@
   shell: "pecl install channel://pecl.php.net/libsodium-{{ php_sodium_version }}"
   notify:
     - Reload Service | nginx
-    - service | php5-fpm | reloaded
+    - service | php-fpm | reloaded
   when: php_sodium
   tags:
     - sodium

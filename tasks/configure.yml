@@ -1,7 +1,7 @@
 ---
-- name: Configure | php5-fpm | php-fpm.conf
+- name: Configure | php-fpm | php-fpm.conf
   ini_file:
-    dest: /etc/php5/fpm/php-fpm.conf
+    dest: "{{ php_config_root }}fpm/php-fpm.conf"
     section: global
     option: "{{ item.option }}"
     value: "{{ item.value }}"
@@ -11,14 +11,14 @@
     - { option: 'pid',                     value: "{{ php_fpm_pidfile_path }}" }
     - { option: 'request_slowlog_timeout', value: "{{ php_slow_threshold }}" }
     - { option: 'slowlog',                 value: "{{ php_slow_log_path }}" }
-  notify: service | php5-fpm | reloaded
+  notify: service | php-fpm | reloaded
   tags:
     - configuration
     - php
 
-- name: Configure | php5-fpm | pool
+- name: Configure | php-fpm | pool
   ini_file:
-    dest: /etc/php5/fpm/pool.d/www.conf
+    dest: "{{ php_config_root }}fpm/pool.d/www.conf"
     section: www
     option: "{{ item.option }}"
     value: "{{ item.value }}"
@@ -30,14 +30,14 @@
     - { option: 'pm.min_spare_servers',       value: "{{ php_min_spare_servers }}" }
     - { option: 'pm.start_servers',           value: "{{ php_start_servers }}" }
     - { option: 'request_terminate_timeout',  value: "{{ php_request_terminate_timeout }}" }
-  notify: service | php5-fpm | reloaded
+  notify: service | php-fpm | reloaded
   tags:
     - configuration
     - php
 
-- name: Configure | php5-fpm | php.ini
+- name: Configure | php-fpm | php.ini
   ini_file:
-    dest: /etc/php5/fpm/php.ini
+    dest: "{{ php_config_root }}fpm/php.ini"
     section: PHP
     option: "{{ item.option }}"
     value: "{{ item.value }}"
@@ -53,7 +53,7 @@
     - { option: 'max_execution_time',    value: "{{ php_max_execution_time }}"}
     - { option: 'max_input_vars',        value: "{{ php_max_input_vars }}"}
     - { option: 'session.cookie_secure', value: "{% if php_cookie_secure %}On{% else %}Off{% endif %}" }
-  notify: service | php5-fpm | reloaded
+  notify: service | php-fpm | reloaded
   tags:
     - configuration
     - php
