@@ -4,7 +4,7 @@
     state: latest
     name: "{{ item }}"
   with_items:
-    - "{{ php_fpm_name if php_fpm else php_cli_name }}"
+    - "{% if php_fpm %}{{ php_fpm_name }}{% else %}{{ php_cli_name }}{% endif %}"
   tags:
     - software-installation
     - using-apt

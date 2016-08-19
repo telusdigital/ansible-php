@@ -1,5 +1,5 @@
 ---
-- name: Configure | php5-fpm | php-fpm.conf
+- name: Configure | php-fpm | php-fpm.conf
   ini_file:
     dest: "{{ php_config_root }}fpm/php-fpm.conf"
     section: global
@@ -16,7 +16,7 @@
     - configuration
     - php
 
-- name: Configure | php5-fpm | pool
+- name: Configure | php-fpm | pool
   ini_file:
     dest: "{{ php_config_root }}fpm/pool.d/www.conf"
     section: www
