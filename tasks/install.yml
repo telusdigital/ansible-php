@@ -13,7 +13,7 @@
   apt:
     state: latest
     name: "{{ item }}"
-  with_items: php_modules
+  with_items: '{{ php_modules }}'
   tags:
     - software-installation
     - using-apt
