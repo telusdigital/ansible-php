@@ -21,7 +21,7 @@
 - name: Install php cli | apt
   apt:
     state: latest
-    name: "php{{ php_modules_postfix }}-cli"
+    name: "php5-cli"
   when: php_cli or php_composer
   tags:
     - software-installation
