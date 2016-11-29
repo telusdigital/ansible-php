@@ -34,6 +34,7 @@ php_request_terminate_timeout: 0
 php_max_input_vars: 1000
 
 php_fpm: yes
+php_cli: yes
 php_composer: no
 php_documentor: no
 php_phpunit: no
