@@ -18,6 +18,15 @@
     - software-installation
     - using-apt
 
+- name: Install php cli | apt
+  apt:
+    state: latest
+    name: "php{{ php_modules_postfix }}-cli"
+  when: php_cli or php_composer
+  tags:
+    - software-installation
+    - using-apt
+
 - name: Composer | Download and Compile
   shell: "{{ item }}"
   with_items:
