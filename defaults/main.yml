@@ -22,7 +22,7 @@ php_max_spare_servers: "{{ ((php_max_children | float) * 0.6) | round | int }}"
 php_max_requests: 500
 
 php_short_open_tag: no # Conflicts with XML headers. Deprecated, removal targeted for PHP6+. <?= style short ECHO tags are always enabled in 5.4+
-php_display_errors: yes
+php_display_errors: "{% if environment_tier in ['development'] %}yes{% else %}no{% endif %}"
 php_cookie_secure: no
 
 php_post_max_size: 8M
